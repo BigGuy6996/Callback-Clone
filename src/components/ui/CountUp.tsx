@@ -5,6 +5,7 @@ import { Fonts } from '@/constants/theme';
 type Props = {
   value: number;
   suffix?: string;
+  prefix?: string;
   duration?: number;
   decimals?: number;
   style?: TextStyle;
@@ -14,7 +15,7 @@ type Props = {
  * Lightweight count-up counter (eased interval — no worklets needed).
  * Port of the site's data-counter behaviour.
  */
-export function CountUp({ value, suffix = '', duration = 1400, decimals = 0, style }: Props) {
+export function CountUp({ value, suffix = '', prefix = '', duration = 1400, decimals = 0, style }: Props) {
   const [display, setDisplay] = useState(0);
 
   useEffect(() => {
@@ -35,6 +36,7 @@ export function CountUp({ value, suffix = '', duration = 1400, decimals = 0, sty
 
   return (
     <Text style={[styles.num, style]}>
+      {prefix}
       {formatted}
       {suffix}
     </Text>
