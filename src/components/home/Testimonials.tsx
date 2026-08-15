@@ -16,7 +16,7 @@ export function TestimonialsSection() {
       <View style={styles.grid}>
         {Testimonials.map((t) => (
           <GlassCard key={t.name} style={styles.card}>
-            <Ionicons name="quote" size={22} color={Colors.blueLight} />
+            <Ionicons name="chatbubble-ellipses-outline" size={22} color={Colors.blueLight} />
             <Text style={styles.quote}>{t.quote}</Text>
             <View style={styles.metric}>
               <Text style={styles.metricText}>{t.metric}</Text>
