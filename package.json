@@ -8,7 +8,11 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "typecheck": "tsc --noEmit",
-    "lint": "expo lint"
+    "lint": "expo lint",
+    "export:web": "expo export --platform web --output-dir dist",
+    "deploy:web": "bash ./deploy-vercel.sh",
+    "build:preview": "eas build -p android --profile preview --non-interactive",
+    "build:preview:local": "bash ./scripts/eas-build.sh"
   },
   "dependencies": {
     "@expo-google-fonts/ibm-plex-mono": "^0.4.1",
@@ -39,6 +43,7 @@
   },
   "devDependencies": {
     "@types/react": "~19.2.2",
+    "eas-cli": "^22.0.0",
     "typescript": "~6.0.3"
   },
   "private": true

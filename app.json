@@ -3,6 +3,12 @@
     "name": "Callback Clone",
     "slug": "callback-clone",
     "version": "1.0.0",
+    // NOTE (must change before store submission):
+    // `android.package` and `ios.bundleIdentifier` below use the working
+    // placeholder "com.callbackclone.app". The owner MUST replace both with
+    // their real, unique app id (e.g. com.<owner>.callback) before submitting
+    // to the Play Store / App Store — app ids cannot be changed once a build
+    // is published. See README.md > "App id (must change before store submission)".
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "callbackclone",
@@ -14,6 +20,7 @@
     },
     "android": {
       "package": "com.callbackclone.app",
+      "versionCode": 1,
       "adaptiveIcon": {
         "backgroundColor": "#FFFFFF",
         "foregroundImage": "./assets/images/icon.png"
