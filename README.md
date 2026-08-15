@@ -1,6 +1,47 @@
-# Welcome to your Expo app 👋
+# Callback Clone
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Expo (React Native) app — SDK 57, Expo Router, TypeScript. Rebuilt from the
+owner's webview app into a true native app (tab navigation, app-style screens,
+brand theme).
+
+## App id (must change before store submission)
+
+`app.json` currently uses the working placeholder **`com.callbackclone.app`**
+for both `android.package` and `ios.bundleIdentifier`. This lets internal
+preview builds run today, but the owner MUST replace both with their real,
+unique app id (e.g. `com.<owner>.callback`) **before** submitting to the Play
+Store / App Store — an app id cannot be changed after a build is published.
+
+## Installable Android build (EAS cloud builds)
+
+This project builds on Expo's cloud (EAS Build) — no local Android Studio/Gradle
+needed. `eas.json` defines the `preview` profile: Android **APK**, internal
+distribution, no dev client.
+
+Prereq: an Expo access token. Create one at https://expo.dev/settings/access-tokens
+and export it as **`EXPO_TOKEN`** (this is the exact env var eas-cli reads for
+non-interactive auth — verified in the eas-cli source, version 22.0.0).
+
+```bash
+export EXPO_TOKEN=<token>     # one-time setup, creates/links the EAS project
+./scripts/eas-build.sh        # or: bunx eas-cli init --non-interactive && bunx eas-cli build -p android --profile preview --non-interactive
+```
+
+The script prints the build URL; the APK download link appears in the build
+output and on the EAS dashboard. Install the APK on a phone for a true
+installable preview.
+
+## Web preview (Vercel)
+
+The app also exports as a static web site (`dist/`). Deploy it to Vercel for a
+live click-through preview:
+
+```bash
+export VERCEL_TOKEN=<token>   # create at https://vercel.com/account/tokens
+./deploy-vercel.sh            # exports dist/ and deploys (prints the live URL)
+```
+
+To build the export without deploying: `bun run export:web`.
 
 ## Get started
 
