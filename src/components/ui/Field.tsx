@@ -17,6 +17,7 @@ type TextFieldProps = {
   multiline?: boolean;
   required?: boolean;
   error?: string;
+  hint?: string;
 };
 
 export function TextField({
@@ -29,6 +30,7 @@ export function TextField({
   multiline = false,
   required = false,
   error,
+  hint,
 }: TextFieldProps) {
   return (
     <View style={styles.field}>
@@ -47,6 +49,7 @@ export function TextField({
         multiline={multiline}
         numberOfLines={multiline ? 4 : 1}
       />
+      {hint && !error ? <Text style={styles.hint}>{hint}</Text> : null}
       {error ? <Text style={styles.errorText}>{error}</Text> : null}
     </View>
   );
